@@ -2,10 +2,10 @@
   "name": "e-commerce-api",
   "version": "1.0.0",
   "description": "",
-  "main": "server.ts",
+  "main": "index.ts",
   "scripts": {
     "ts-watch": "tsc -w",
-    "start": "nodemon --watch \"api/**/*.ts\" --exec ts-node api/server.ts"
+    "start": "nodemon --watch \"api/**/*.ts\" --exec ts-node api/index.ts"
   },
   "dependencies": {
     "@types/bcrypt": "^5.0.2",

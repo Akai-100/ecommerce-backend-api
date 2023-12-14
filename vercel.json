@@ -3,7 +3,7 @@
   "installCommand": "npm i --legacy-peer-deps",
   "builds": [
     {
-      "src": "api/server.ts",
+      "src": "api/index.ts",
       "use": "@vercel/node"
     }
   ],
