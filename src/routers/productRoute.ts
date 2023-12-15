@@ -22,7 +22,15 @@ router.get('/:slug', getProductBySlug)
 // Only Admin Routes
 router.delete('/:slug', isLoggedIn, isAdmin, deleteProductBySlug)
 
-router.post('/', isLoggedIn, isAdmin, validateCreateProduct, runValidation, createSingleProduct)
+router.post(
+  '/',
+  isLoggedIn,
+  isAdmin,
+  uploadProduct.single('image'),
+  validateCreateProduct,
+  runValidation,
+  createSingleProduct
+)
 
 router.put(
   '/:slug',

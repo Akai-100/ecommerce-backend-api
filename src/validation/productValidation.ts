@@ -12,6 +12,7 @@ export const validateCreateProduct: ValidationChain[] = [
     .withMessage('Price is required')
     .isFloat({ min: 0 })
     .withMessage('Price must be a positive number greater than 0'),
+  check('image').optional().isLength({ min: 1 }),
   check('category')
     .trim()
     .notEmpty()
@@ -46,6 +47,7 @@ export const validateUpdateProduct: ValidationChain[] = [
     .optional()
     .isFloat({ min: 0 })
     .withMessage('Price must be a positive number greater than 0'),
+  check('image').optional().isLength({ min: 1 }).withMessage('Image can not be empty'),
   check('category').trim().optional().isMongoId().withMessage('Category must be a valid Mongo ID'),
   check('description')
     .trim()

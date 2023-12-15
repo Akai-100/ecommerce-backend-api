@@ -75,6 +75,7 @@ export const removeProductBySlug = async (slug: string) => {
 
 export const createProduct = async (req: Request) => {
   const { title, price, description, category, quantity, sold, shipping } = req.body
+  const image = req.file?.path
 
   const productExsist = await Product.exists({ title: title })
   if (productExsist) {
@@ -88,6 +89,7 @@ export const createProduct = async (req: Request) => {
   const newProduct: IProduct = new Product({
     title: title,
     price: price,
+    image: image,
     slug: slugify(title),
     description: description,
     quantity: quantity,
