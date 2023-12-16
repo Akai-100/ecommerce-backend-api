@@ -20,15 +20,25 @@ const router = Router()
 
 // Only Admin Routes
 
-router.get('/', isLoggedIn, isAdmin, getUsers)
+// router.get('/', isLoggedIn, isAdmin, getUsers)
 
-router.get('/:userName', isLoggedIn, isAdmin, getUserByUserName)
+// router.get('/:userName', isLoggedIn, isAdmin, getUserByUserName)
 
-router.delete('/:userName', isLoggedIn, isAdmin, deleteUserByUserName)
+// router.delete('/:userName', isLoggedIn, isAdmin, deleteUserByUserName)
 
-router.post('/', isLoggedIn, isAdmin, validateCreateUser, runValidation, createSingleUser)
+// router.post('/', isLoggedIn, isAdmin, validateCreateUser, runValidation, createSingleUser)
 
-router.put('/updateBan/:userName', isLoggedIn, isAdmin, updateBanStatusByUserName)
+// router.put('/updateBan/:userName', isLoggedIn, isAdmin, updateBanStatusByUserName)
+
+router.get('/', getUsers)
+
+router.get('/:userName', getUserByUserName)
+
+router.delete('/:userName', deleteUserByUserName)
+
+router.post('/', createSingleUser)
+
+router.put('/updateBan/:userName', updateBanStatusByUserName)
 
 // Only User Routes
 

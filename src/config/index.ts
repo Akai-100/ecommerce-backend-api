@@ -11,6 +11,7 @@ export const dev = {
     jwtAccessKey: process.env.JWT_ACCESS_KEY,
   },
   db: {
+    // url: 'mongodb://127.0.0.1:27017/e-commerce-backend-project'
     url: process.env.MONGODB_URL,
   },
 }

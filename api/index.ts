@@ -1,5 +1,7 @@
 import cookieParser from 'cookie-parser'
 import express, { Application, Request, Response } from 'express'
+import morgan from 'morgan'
+import cors from 'cors'
 import createHttpError from 'http-errors'
 
 import { dev } from '../src/config'
@@ -21,7 +23,10 @@ app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`)
 })
 
+app.use(cors())
+app.use('/public', express.static('public'))
 app.use(cookieParser())
+app.use(morgan('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
