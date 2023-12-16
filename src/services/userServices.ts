@@ -181,7 +181,7 @@ export const sendToken = async (req: Request, res: Response, next: NextFunction)
   const emailData: EmailDataType = {
     email: email,
     subject: 'Activate Your Account',
-    html: `<h1>Hello ${firstName}</h1><p>Please activate your account by clicking the following link: <a href="http://localhost:3003/users/activate/${token}">Click Here</a></p><p>Link will expire in 5 minutes</p>`,
+    html: `<h1>Hello ${firstName}</h1><p>Please activate your account by clicking the following link: <a href="http://localhost:3000/activation/${token}">Click Here</a></p><p>Link will expire in 5 minutes</p>`,
   }
   await handleSendEmail(emailData)
 
