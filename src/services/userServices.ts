@@ -111,6 +111,20 @@ export const updateBanStatus = async (userName: string): Promise<IUser | null> =
   return updatedUser
 }
 
+export const updateRole = async (userName: string): Promise<IUser | null> => {
+  const user = await User.findOne({ userName: userName })
+  if (!user) {
+    const error = createHttpError(404, `User not found with this user name ${userName}`)
+    throw error
+  }
+  const updatedUser = await User.findOneAndUpdate(
+    { userName: userName },
+    { isAdmin: !user?.isAdmin },
+    { new: true }
+  )
+  return updatedUser
+}
+
 export const createUser = async (req: Request, res: Response, next: NextFunction) => {
   const { firstName, lastName, userName, email, password } = req.body
 

@@ -11,6 +11,7 @@ import {
   sendToken,
   updateBanStatus,
   updateProfile,
+  updateRole,
   userActivate,
 } from '../services/userServices'
 
@@ -76,7 +77,21 @@ export const updateBanStatusByUserName = async (
     const userName = req.params.userName
     const user = await updateBanStatus(userName)
     res.status(200).send({
-      message: 'User status is updated',
+      message: 'Ban status updated',
+      payload: user,
+    })
+  } catch (error) {
+    next(error)
+  }
+}
+
+// PUT : /users/updateRole/:userName => update role by userName (Admin Only)
+export const updateRoleByUserName = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const userName = req.params.userName
+    const user = await updateRole(userName)
+    res.status(200).send({
+      message: 'Role updated',
       payload: user,
     })
   } catch (error) {

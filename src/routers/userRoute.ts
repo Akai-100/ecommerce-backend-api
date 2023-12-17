@@ -9,9 +9,10 @@ import {
   getUsers,
   processRegisterUser,
   updateBanStatusByUserName,
+  updateRoleByUserName,
   updateUserProfile,
 } from '../controllers/userController'
-import { isAdmin, isLoggedIn, isLoggedOut } from '../middlewares/auth'
+import { isLoggedIn, isLoggedOut } from '../middlewares/auth'
 import { uploadUser } from '../middlewares/uploadFile'
 import { runValidation } from '../validation'
 import { validateCreateUser, validateUpdateProfile } from '../validation/userValidation'
@@ -39,6 +40,8 @@ router.delete('/:userName', deleteUserByUserName)
 router.post('/', createSingleUser)
 
 router.put('/updateBan/:userName', updateBanStatusByUserName)
+
+router.put('/updateRole/:userName', updateRoleByUserName)
 
 // Only User Routes
 
